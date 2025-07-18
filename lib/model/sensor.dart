@@ -1,6 +1,8 @@
 import 'dart:math';
 
-class Sensor {
+import 'package:equatable/equatable.dart';
+
+class Sensor extends Equatable {
   final int id;
   final String name;
   final String description;
@@ -8,7 +10,7 @@ class Sensor {
   /// Always in Fahrenheit for this demo
   final double value;
 
-  Sensor({
+  const Sensor({
     required this.id,
     required this.name,
     required this.description,
@@ -34,4 +36,7 @@ class Sensor {
       value: value ?? this.value,
     );
   }
+
+  @override
+  List<Object?> get props => [id, name, description, value];
 }
